@@ -1,0 +1,819 @@
+﻿/* basic page layout */
+html, body {
+    width: 100%;
+}
+
+.page {
+    width: 80%;
+    margin: 15px auto 15px auto;
+}
+
+h3 {
+    font-family: 'Dancing Script', cursive;
+    font-size: 1.5em;
+    margin-bottom: 1em;
+}
+
+/* banner */
+.banner {
+    background-image: url(../images/banner.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    padding: 15px;
+}
+
+.logo {
+    display: block;
+    width: auto;
+    height: auto;
+    max-width: 20%;
+    max-height: 150px;
+    float: left;
+}
+
+.main-nav {
+    display: block;
+    float: left;
+    width: 41%;
+    margin-top: 3.2em;
+    margin-right: 1%;
+    margin-left: 3%;
+    padding: 10px 0 12px 0;
+    border-top: 1px solid #ccc;
+    border-bottom: 1px solid #ccc;
+}
+
+    .main-nav > li {
+        display: inline-block;
+        padding-left: 8%;
+    }
+
+        .main-nav > li > a {
+            color: #ddd;
+            font-family: Tahoma;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: .9em;
+            white-space: nowrap;
+        }
+
+            .main-nav > li > a.active {
+                color: #41c7de;
+            }
+
+.search-login-container {
+    float: left;
+    width: 33%;
+    margin-left: 1%;
+}
+
+.login-container {
+    float: right;
+}
+
+    .login-container > a {
+        color: #666;
+        font-family: Tahoma;
+        text-decoration: none;
+        display: inline-block;
+        padding-left: 5px;
+        font-size: .8em;
+    }
+
+        .login-container > a.bd {
+            border-right: 1px solid #888;
+            padding-right: 10px;
+        }
+
+.search-container {
+    padding: 10px 0 10px 0;
+    margin-top: 1.9em;
+    border-top: 1px solid #ccc;
+    border-bottom: 1px solid #ccc;
+}
+
+.search {
+    float: right;
+    width: 55%;
+    padding: 0 8px 0 8px;
+    border-left: 1px solid #eee;
+    border-right: 1px solid #eee;
+}
+
+    .search > a.search-btn {
+        display: block;
+        float: right;
+        width: 24px;
+        height: 24px;
+        background-image: url('../images/search-icon.png');
+    }
+
+    .search > div {
+        margin-right: 24px;
+    }
+
+        .search > div > input[type="text"] {
+            padding: 3px 0 0 0;
+            background-color: transparent;
+            border: none;
+            font-family: Tahoma;
+            font-size: .9em;
+            font-weight: bold;
+            color: #fff;
+            width: 100%;
+        }
+
+            .search > div > input[type="text"]::-webkit-input-placeholder {
+                color: #eee;
+                font-weight: bold;
+            }
+
+            .search > div > input[type="text"]:-moz-input-placeholder {
+                color: #eee;
+                font-weight: bold;
+            }
+
+            .search > div > input[type="text"]:-ms-input-placeholder {
+                color: #eee;
+                font-weight: bold;
+            }
+
+/* shadow */
+.shadow {
+    width: 100%;
+    margin: -0.5em 0 0 0;
+    background: rgba(230, 230, 230, .5);
+    padding-bottom: 1.5em;
+}
+
+.inner-shadow {
+    width: 80%;
+    margin: 0 auto 0 auto;
+}
+
+.textbox-container {
+    width: 100%;
+    background: #f5f5f5; /* Old browsers */
+    background: -moz-linear-gradient(top, #f5f5f5 0%, #dfdfdf 100%); /* FF3.6+ */
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#f5f5f5), color-stop(100%,#dfdfdf)); /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(top, #f5f5f5 0%,#dfdfdf 100%); /* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient(top, #f5f5f5 0%,#dfdfdf 100%); /* Opera 11.10+ */
+    background: -ms-linear-gradient(top, #f5f5f5 0%,#dfdfdf 100%); /* IE10+ */
+    background: linear-gradient(top, #f5f5f5 0%,#dfdfdf 100%); /* W3C */
+    -webkit-box-shadow: 0 0 3px 3px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 0 3px 3px rgba(0, 0, 0, 0.1);
+    -webkit-border-radius: 3px;
+    border-radius: 3px;
+    padding: 15px 10px 15px 10px;
+}
+
+    .textbox-container a.primaryAction {
+        display: block;
+        float: right;
+    }
+
+.textbox-ask {
+    margin-right: 140px;
+}
+
+    .textbox-ask input[type="text"] {
+        width: 100%;
+    }
+
+.breadcurb {
+    margin: 1em 0 1em 0;
+}
+
+    .breadcurb > a {
+        text-decoration: none;
+        color: #1e90ff;
+        font-family: Tahoma;
+        font-weight: bold;
+        font-size: .8em;
+        display: inline-block;
+        vertical-align: top;
+        margin-right: .1em;
+    }
+
+    .breadcurb > span {
+        color: #666;
+        font-family: Tahoma;
+        font-size: .8em;
+        display: inline-block;
+        vertical-align: top;
+        margin-right: .1em;
+    }
+
+.left-pane {
+    width: 69%;
+    float: left;
+    border-right: 1px solid #aaa;
+}
+
+    .left-pane .question-avatar {
+        width: 2.5em;
+        height: 2.5em;
+        float: left;
+        background-color: #aaa; /* TODO: replace it with real image */
+    }
+
+    .left-pane .question {
+        margin-left: 3.5em;
+    }
+
+        .left-pane .question a.question-author {
+            text-decoration: none;
+            color: #41c7de;
+            font-family: Tahoma;
+            font-size: .8em;
+        }
+
+        .left-pane .question span {
+            color: #999;
+            font-family: Tahoma;
+            font-size: .8em;
+        }
+
+            .left-pane .question span.right {
+                display: block;
+                float: right;
+                margin-top: .2em;
+            }
+
+        .left-pane .question a.question-link {
+            margin-top: .4em;
+            display: block;
+            text-decoration: none;
+            color: #1e90ff;
+            font-family: Tahoma;
+            font-size: .8em;
+        }
+
+    .left-pane .answers {
+        margin-top: .8em;
+    }
+
+        .left-pane .answers .answers-tip {
+            color: #777;
+            font-family: Tahoma;
+            font-size: .7em;
+        }
+
+        .left-pane .answers .answers-control {
+            margin: 1.5em 0 1.5em 0;
+        }
+
+.right-pane {
+    float: right;
+    width: 29%;
+}
+
+    .right-pane > span {
+        color: #444;
+        font-family: Tahoma;
+        font-size: .8em;
+        font-weight: bold;
+        margin-bottom: 1em;
+    }
+
+    .right-pane .featured-answer {
+        color: #444;
+        font-family: Tahoma;
+        font-size: 3.3em;
+        font-weight: bold;
+        margin: 0 auto 0 auto;
+        text-align: center;
+        width: 100%;
+        padding-top: .5em;
+    }
+
+/* main */
+.main {
+    width: 100%;
+    margin: 1em 0 0 0;
+}
+
+.inner-main {
+    width: 80%;
+    margin: 0 auto 0 auto;
+}
+
+.left-container {
+    width: 60%;
+    float: left;
+    margin-bottom: 2em;
+}
+
+    .left-container .share-question {
+        margin-bottom: 1em;
+    }
+
+        .left-container .share-question span {
+            color: #444;
+            font-family: Tahoma;
+            font-size: .8em;
+            font-weight: bold;
+            display: inline-block;
+            margin-right: .5em;
+            vertical-align: top;
+        }
+
+        .left-container .share-question a {
+            display: inline-block;
+            margin-right: .2em;
+            vertical-align: top;
+            font-family: Tahoma;
+            font-size: .8em;
+            /* TODO: change to logo*/
+        }
+
+    .left-container ul li {
+        display: block;
+        width: 100%;
+        padding: 1em 0 0 0;
+    }
+
+        .left-container ul li:first-child {
+            padding-top: 0;
+            border-top: none;
+        }
+
+    .left-container .comment-avatar {
+        width: 2.5em;
+        height: 2.5em;
+        float: left;
+        background-color: #aaa; /* TODO: replace it with real image */
+    }
+
+    .left-container .comment {
+        margin-left: 3.5em;
+    }
+
+        .left-container .comment a.comment-author {
+            text-decoration: none;
+            color: #41c7de;
+            font-family: Tahoma;
+            font-size: .8em;
+        }
+
+        .left-container .comment span {
+            color: #999;
+            font-family: Tahoma;
+            font-size: .8em;
+        }
+
+            .left-container .comment span.right {
+                display: block;
+                float: right;
+                margin-top: .2em;
+                color: #bbb;
+            }
+
+        .left-container .comment div.comment-content {
+            margin-top: .5em;
+            padding-top: .5em;
+            border-top: 1px solid #ccc;
+            display: block;
+            text-decoration: none;
+            color: #999;
+            font-family: Tahoma;
+            font-size: .8em;
+        }
+
+        .left-container .comment div.comment-vote {
+            float: right;
+            margin: .8em 0 0 .8em;
+        }
+
+            .left-container .comment div.comment-vote a {
+                display: inline-block;
+                vertical-align: top;
+                color: #1e90ff;
+                text-decoration: none;
+                font-family: Tahoma;
+                font-size: .8em;
+                margin-right: .5em;
+            }
+
+            .left-container .comment div.comment-vote span {
+                display: inline-block;
+                vertical-align: top;
+                margin-right: .5em;
+            }
+
+    .left-container .comment-submit {
+        margin-top: 1em;
+    }
+
+        .left-container .comment-submit input[type="text"] {          
+            width: 100%;
+            border-radius: 4px;
+        }
+
+        .left-container .comment-submit a.primaryAction {            
+            margin-top: 1em;
+        }
+
+
+.right-container {
+    float: right;
+    width: 37%;
+    margin-left: 2%;
+    margin-top: 2.2em;
+}
+
+    .right-container ul.related-questions {
+        margin: 0 0 2em 0;
+        width: 80%;
+    }
+
+        .right-container ul.related-questions li {
+            display: block;
+            width: 100%;            
+            padding: .5em 0 .5em 0;
+            border-top: 1px solid #ccc;
+        }
+
+            .right-container ul.related-questions li:first-child {
+                border-top: none;
+            }
+
+    .right-container li a.question-author {
+        text-decoration: none;
+        color: #41c7de;
+        font-family: Tahoma;
+        font-size: .8em;
+        display: inline-block;
+        margin-right: .5em;
+        vertical-align: top;
+    }
+
+    .right-container li span {
+        color: #999;
+        font-family: Tahoma;
+        font-size: .8em;
+        display: inline-block;
+        vertical-align: top;
+    }
+
+    .right-container li a.question-link {
+        margin-top: 0;
+        display: block;
+        text-decoration: none;
+        color: #1e90ff;
+        font-family: Tahoma;
+        font-size: .8em;
+    }
+
+
+/* bottom */
+.bottom {
+    width: 100%;
+    position: relative;
+}
+
+.social-community {
+    position: absolute;
+    right: 5%;
+    top: -1.5em;
+    border: 1px solid #eee;
+    border-radius: 3px;
+    background-color: #fff;
+    -moz-box-shadow: 0 0 3px 3px rgba(0, 0, 0, .3);
+    -webkit-box-shadow: 0 0 3px 3px rgba(0, 0, 0, .3);
+    box-shadow: 0 0 3px 3px rgba(0, 0, 0, .3);
+    width: 33em;
+}
+
+.join-community {
+    padding: .6em 0 .6em 0;
+}
+
+    .join-community span {
+        display: inline-block;
+        vertical-align: top;
+        font-family: 'Dancing Script', cursive;
+        font-size: 1.5em;
+        font-weight: bold;
+        color: #444;
+    }
+
+        .join-community span.decoration-left,
+        .join-community span.decoration-right {
+            height: .7em;
+            border-bottom: 1px solid #444;
+            width: 2.5em;
+        }
+
+        .join-community span.decoration-left {
+            margin: 0 .1em 0 3.5em;
+        }
+
+        .join-community span.decoration-right {
+            margin: 0 0 0 .1em;
+        }
+
+.social-login {
+    padding: 0 2em 0 2em;
+}
+
+.facebook-login {
+    display: block;
+    text-decoration: none;
+    float: left;
+    background-color: #0026ff;
+    border-radius: 4px;
+    width: 12em;
+}
+
+.twitter-login {
+    display: block;
+    text-decoration: none;
+    float: right;
+    background-color: #1e90ff;
+    border-radius: 3px;
+    width: 12em;
+}
+
+    .facebook-login span,
+    .twitter-login span {
+        display: inline-block;
+        vertical-align: top;
+        padding: .8em 1.2em .7em 1em;
+        color: #eee;
+        font-size: .8em;
+        font-family: Tahoma;
+    }
+
+.facebook-login span {
+    border-left: 1px solid #4800ff;
+}
+
+.twitter-login span {
+    border-left: 1px solid #fff;
+}
+
+.facebook-login span.facebook-icon {
+    background-image: url(../images/facebook.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    height: 2em;
+    width: 2em;
+    padding: 0;
+    margin: .3em 0 0 .8em;
+    border-left: none;
+}
+
+.twitter-login span.twitter-icon {
+    background-image: url(../images/twitter.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    height: 2em;
+    width: 2em;
+    padding: 0;
+    margin: .3em 0 0 .8em;
+    border-left: none;
+}
+
+.social-login-or {
+    margin: 0 auto 0 auto;
+    width: 2em;
+    font-size: 1em;
+    color: #888;
+    font-family: Tahoma;
+    padding-top: .5em;
+    text-align: center;
+}
+
+.no-social-login {
+    margin: .8em auto .8em auto;
+    width: 20em;
+    font-size: .8em;
+    color: #888;
+    font-family: Tahoma;
+    text-align: center;
+}
+
+
+a.btn-sign-me-up {
+    display: block;
+    float: right;
+    width: 6em;
+    font-size: .8em;
+    color: #eee;
+    font-family: Tahoma;
+    padding: .4em 1em .4em 1em;
+    background-color: #ff6a00;
+    text-decoration: none;
+    border-radius: 3px;
+}
+
+.email-signup > div {
+    margin-right: 7em;
+}
+
+    .email-signup > div.clear {
+        margin: 0;
+    }
+
+    .email-signup > div > input[type="text"] {
+        display: block;
+        width: 26em;
+        font-size: .8em;
+        font-family: Tahoma;
+        padding: .3em .5em .4em .5em;
+        border-radius: 4px;
+    }
+
+.email-signup > p {
+    font-size: .6em;
+    font-family: Tahoma;
+    color: #888;
+    text-align: center;
+    margin: 1.2em 0 1.2em 0;
+}
+
+    .email-signup > p a {
+        text-decoration: none;
+        color: #41c7de;
+    }
+
+.footer {
+    background: #222;
+    padding: 2em 2em 1.5em 2em;
+}
+
+.footer-nav {
+    display: inline-block;
+    margin: 0 3% 0 3%;
+    vertical-align: top;
+}
+
+    .footer-nav h4 {
+        font-family: 'Dancing Script', cursive;
+        font-size: 1.2em;
+        margin-bottom: 1em;
+        color: #ddd;
+    }
+
+    .footer-nav ul {
+        margin-left: 1.3em;
+    }
+
+        .footer-nav ul li {
+        }
+
+            .footer-nav ul li a {
+                font-size: .8em;
+                color: #ddd;
+                font-family: Tahoma;
+                text-decoration: none;
+            }
+
+/* responsiveness  */
+@media screen and (max-width: 1300px) {
+    body {
+        font-size: 80%;
+    }
+
+    .page {
+        width: 90%;
+    }
+
+    .main-nav > li {
+        padding-left: 5%;
+    }
+
+    .inner-shadow {
+        width: 90%;
+    }
+
+    .inner-main {
+        width: 90%;
+    }
+
+    .search-container {
+        margin-top: 1.95em;
+    }
+
+    .social-community {
+        right: 3%;
+    }
+
+     .right-container ul.related-questions {       
+        width: 100%;
+    }
+}
+
+
+@media screen and (max-width: 850px) {
+    .page {
+        width: 96%;
+    }
+
+    .logo {
+        margin-top: 100px;
+        margin-left: 40%;
+        margin-right: -10%;
+    }
+
+    .main-nav {
+        margin-left: 0;
+        margin-right: 0;
+        width: 68%;
+        position: absolute;
+    }
+
+    .search-login-container {
+        width: auto;
+        float: right;
+        margin-left: 0;
+    }
+
+    .search-container {
+        padding: 8px 0 6px 0;
+    }
+
+    .left-pane {
+        width: 100%;
+        border-right: none;
+    }
+
+    .right-pane {
+        display: none;
+    }
+
+
+    .social-community {
+        position: static;
+        margin: 0 auto 2em auto;
+        font-size: 110%;
+    }
+
+    .left-container {
+        width: 85%;
+        float: none;
+    }
+
+    .right-container {
+        width: 85%;
+        float: none;
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .search-login-container {
+        display: none;
+    }
+
+    .inner-shadow {
+        width: 95%;
+    }
+
+    .inner-main {
+        width: 95%;
+    }
+
+    .textbox-container {
+        width: 95%;
+    }
+
+    .left-pane .question-avatar {
+        display: none;
+    }
+
+    .left-pane .question {
+        margin-left: 0;
+    }
+
+    .main-nav {
+        width: 90%;
+    }
+
+    .social-community {
+        font-size: 90%;
+    }
+
+    .inner-main {
+        width: 95%;
+    }
+
+    .left-container {
+        margin-left: 0;
+    }
+
+    .right-container{
+        margin-left: 0;
+    }
+
+    .left-container .comment-avatar  {
+        display: none;
+    }
+
+    .left-container .comment {
+         margin-left: 0;
+    }
+}

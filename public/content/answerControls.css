@@ -1,0 +1,51 @@
+﻿/* radio button control */
+.answers-control-radiobutton {
+    display: inline-block;
+    margin: .2em 2.5em 0 0;
+    vertical-align: top;
+}
+
+/* radio button control configuration */
+.answer-control-radiobutton-configuration {
+}
+
+
+    .answer-control-radiobutton-configuration > p {
+        color: #444;
+        font-family: Tahoma;
+        font-size: .9em;
+        margin-bottom: 1em;
+    }
+
+        .answer-control-radiobutton-configuration > p > span {
+            color: #999;
+            font-family: Tahoma;
+            font-size: .8em;
+            display: inline-block;
+            margin: .2em 0 0 .5em;
+        }
+
+    .answer-control-radiobutton-configuration .textarea-container {
+        width: 80%;
+        background: #f5f5f5; /* Old browsers */
+        background: -moz-linear-gradient(top, #f5f5f5 0%, #dfdfdf 100%); /* FF3.6+ */
+        background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#f5f5f5), color-stop(100%,#dfdfdf)); /* Chrome,Safari4+ */
+        background: -webkit-linear-gradient(top, #f5f5f5 0%,#dfdfdf 100%); /* Chrome10+,Safari5.1+ */
+        background: -o-linear-gradient(top, #f5f5f5 0%,#dfdfdf 100%); /* Opera 11.10+ */
+        background: -ms-linear-gradient(top, #f5f5f5 0%,#dfdfdf 100%); /* IE10+ */
+        background: linear-gradient(top, #f5f5f5 0%,#dfdfdf 100%); /* W3C */
+        -webkit-box-shadow: 0 0 3px 3px rgba(0, 0, 0, 0.1);
+        box-shadow: 0 0 3px 3px rgba(0, 0, 0, 0.1);
+        -webkit-border-radius: 3px;
+        border-radius: 3px;
+        padding: 15px 0 15px 0;
+    }
+
+        .answer-control-radiobutton-configuration .textarea-container div {
+            margin: 0 35px 0 10px
+        }
+
+    .answer-control-radiobutton-configuration textarea {
+        width: 100%;
+        display: block;
+    }

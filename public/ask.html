@@ -1,0 +1,267 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Hivi Mockup Question</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0" />
+    <link type="text/css" rel="stylesheet" href="content/base.css" />
+    <link type="text/css" rel="stylesheet" href="content/ask.css" />
+    <link type="text/css" rel="stylesheet" href="content/answerControls.css" />
+    <link href="http://fonts.googleapis.com/css?family=Dancing+Script" rel="stylesheet" type="text/css">
+</head>
+<body>
+    <div class="page">
+        <div class="banner">
+
+            <ul class="main-nav">
+                <li><a href="javascript:void(0)" class="active">Home</a></li>
+                <li><a href="javascript:void(0)">Categories</a></li>
+                <li><a href="javascript:void(0)">Questions</a></li>
+                <li><a href="javascript:void(0)">My Activity</a></li>
+            </ul>
+
+            <img class="logo" src="images/logo.png" alt="logo" />
+
+            <div class="search-login-container">
+                <div class="login-container">
+                    <a href="javascript:void(0)" class="bd">Login</a>
+                    <a href="javascript:void(0)">Sign up</a>
+                </div>
+
+                <div class="clear"></div>
+
+                <div class="search-container">
+                    <div class="search">
+                        <a href="javascript:void(0)" class="search-btn"></a>
+                        <div>
+                            <input type="text" placeholder="Search..." />
+                        </div>
+                    </div>
+                    <div class="clear"></div>
+                </div>
+            </div>
+
+            <div class="clear"></div>
+        </div>
+        <!-- end banner -->
+
+        <div class="main">
+            <div class="inner-main">
+                <div class="breadcurb">
+                    <a href="javascript:void(0)">Home</a> <span>/</span>
+                    <a href="javascript:void(0)">Ask a Question</a>
+                </div>
+
+                <h3>Step 1. <b>Your Question</b></h3>
+
+                <div class="textbox-container">
+                    <div class="textbox-ask">
+                        <input type="text" placeholder="Go ahead, ask a question" />
+                    </div>
+                </div>
+                <div class="characters-remaining"><span>Characters remaining:</span> <span class="characters-remaining-count">79</span></div>
+
+                <h3>Step 2. <b>How will your question be answered?</b> <span>(Choose one)</span></h3>
+
+                <ul class="question-controls">
+                    <li>
+                        <div class="selected">
+                        </div>
+
+                        <div class="question-control">
+                            <p class="control-title">Single Choice</p>
+                            <p>As many options as you can think of</p>
+                        </div>
+
+                    </li>
+
+                    <li>
+                        <div class="unselected">
+                        </div>
+
+                        <div class="question-control">
+                            <p class="control-title">Multiple Choice</p>
+                            <p>As many options as you can think of</p>
+                        </div>
+                    </li>
+
+                    <li class="clear"></li>
+                </ul>
+
+
+                <h3>Step 3. <b>Enter your answers</b></h3>
+
+                <div class="question-control-config">
+
+                    <div class="answer-control-radiobutton-configuration">
+                        <p>Enter answers <span>one line per answer</span></p>
+                        <div class="textarea-container">
+                            <div>
+                                <textarea></textarea>
+                            </div>
+                        </div>
+                    </div>
+
+                    <h4>Preview of your question</h4>
+
+                    <div class="answer-control-preview">
+                        <div class="question-avatar">
+                        </div>
+
+                        <div class="question">
+                            <a href="javascript:void(0)" class="question-author">Whodoneit32</a> <span>has asked</span>
+                            <a href="javascript:void(0)" class="question-link">How many years before North Korea snpas and bombs everything?</a>
+                        </div>
+
+                        <div class="answers">
+                            <div class="answers-tip">
+                                Possible Answers (select and click submit):
+                            </div>
+
+                            <div class="answers-control">
+
+                                <div class="answers-control-radiobutton">
+                                    <input type="radio" name="answer" id="answer-1" />
+                                    <label for="answer-1">never</label>
+                                </div>
+
+                                <div class="answers-control-radiobutton">
+                                    <input type="radio" name="answer" id="answer-2" />
+                                    <label for="answer-2">5 years</label>
+                                </div>
+
+                                <div class="answers-control-radiobutton">
+                                    <input type="radio" name="answer" id="answer-3" />
+                                    <label for="answer-3">10 years</label>
+                                </div>
+
+                                <div class="answers-control-radiobutton">
+                                    <input type="radio" name="answer" id="answer-4" />
+                                    <label for="answer-4">15 years</label>
+                                </div>
+
+                                <div class="answers-control-radiobutton">
+                                    <input type="radio" name="answer" id="answer-5" />
+                                    <label for="answer-5">20+ years</label>
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+                    <!-- end preview -->
+
+                </div>
+                <!-- end answer configuration -->
+
+                <h3>Step 4. <b>Categorize your question</b></h3>
+
+                <div class="question-tags-configuration">
+                    <p>Type in tags</p>
+                    <input type="text" class="tags" placeholder="Add a tag" />
+                </div>
+
+                <div class="question-others-configuration">
+                    <input type="checkbox" id="question-allowCommenting" checked="checked" />
+                    <label for="question-enableComment">Allow Commenting</label>
+                </div>
+
+                 <div class="question-others-configuration">
+                    <input type="checkbox" id="question-emailWhenAnswerPosted" />
+                    <label for="question-emailWhenAnswerPosted">Email me when an answer is posted</label>
+                </div>
+
+                <div class="question-create-newquestion">
+                    <a class="primaryAction">Post my question</a>
+                </div>
+            </div>
+        </div>
+        <!-- end main -->
+        <div class="bottom">
+
+            <div class="social-community">
+                <div class="join-community">
+                    <span class="decoration-left"></span>
+                    <span>Join the community</span>
+                    <span class="decoration-right"></span>
+                </div>
+
+                <div class="social-login">
+                    <a class="facebook-login" href="javascript:void(0)">
+                        <span class="facebook-icon"></span>
+                        <span>Login with Facebook</span>
+                    </a>
+
+                    <a class="twitter-login" href="javascript:void(0)">
+                        <span class="twitter-icon"></span>
+                        <span>Login with Twitter</span>
+                    </a>
+
+                    <div class="social-login-or">
+                        OR
+                    </div>
+
+                    <div class="clear"></div>
+
+                    <div class="no-social-login">
+                        Don't have Facebook or Twitter?
+                    </div>
+
+                    <div class="clear"></div>
+
+                    <div class="email-signup">
+
+                        <a href="javascript:void(0)" class="btn-sign-me-up">Sign me up</a>
+
+                        <div>
+                            <input type="text" placeholder="your email address" />
+                        </div>
+
+                        <div class="clear"></div>
+
+                        <p>
+                            By click this button you agree to Hivenate's <a href="javascript:void(0)">Privacy Policy</a> &amp; <a href="javascript:void(0)">Term of Use</a>
+                        </p>
+
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="footer">
+                <div class="footer-nav">
+                    <h4>Site</h4>
+                    <ul>
+                        <li><a href="javascript:void(0)">Home</a></li>
+                        <li><a href="javascript:void(0)">Categories</a></li>
+                        <li><a href="javascript:void(0)">Questions</a></li>
+                        <li><a href="javascript:void(0)">My Activity</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-nav">
+                    <h4>About Hivenate</h4>
+                    <ul>
+                        <li><a href="javascript:void(0)">About Us</a></li>
+                        <li><a href="javascript:void(0)">Sitemap</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-nav">
+                    <h4>Legal</h4>
+                    <ul>
+                        <li><a href="javascript:void(0)">Privacy Policy</a></li>
+                        <li><a href="javascript:void(0)">Terms of Use</a></li>
+                        <li><a href="javascript:void(0)">Disclaimer</a></li>
+                    </ul>
+                </div>
+
+                <div class="clear"></div>
+            </div>
+
+        </div>
+        <!-- end bottom -->
+    </div>
+</body>
+</html>
