@@ -69,43 +69,32 @@
                     </div>
 
                     <div class="question">
-                        <a href="javascript:void(0)" class="question-author">Whodoneit32</a> <span>has asked</span>
-                        <a href="javascript:void(0)" class="question-link">How many years before North Korea snpas and bombs everything?</a>
+                        <a href="<%= featuredQuestion.author_url %>" class="question-author"><%= featuredQuestion.author %></a> <span>has asked</span>
+                        <a href="<%= featuredQuestion.url %>" class="question-link"><%= featuredQuestion.body %></a>
                     </div>
 
                     <div class="answers">
+
+                        <% if(featuredQuestion.choice_type === 'Single'){ %>
+
                         <div class="answers-tip">
                             Possible Answers (select and click submit):
                         </div>
 
                         <div class="answers-control">
 
+                            <% for(var i = 0; i < featuredQuestion.choices.length; i++){ %>
+                            
                             <div class="answers-control-radiobutton">
-                                <input type="radio" name="answer" id="answer-1" />
-                                <label for="answer-1">never</label>
+                                <input type="radio" name="answer" id="answer-<%= featuredQuestion.choices[i].id %>" />
+                                <label for="answer-<%= featuredQuestion.choices[i].id %>"><%= featuredQuestion.choices[i].body %></label>
                             </div>
 
-                            <div class="answers-control-radiobutton">
-                                <input type="radio" name="answer" id="answer-2" />
-                                <label for="answer-2">5 years</label>
-                            </div>
-
-                            <div class="answers-control-radiobutton">
-                                <input type="radio" name="answer" id="answer-3" />
-                                <label for="answer-3">10 years</label>
-                            </div>
-
-                            <div class="answers-control-radiobutton">
-                                <input type="radio" name="answer" id="answer-4" />
-                                <label for="answer-4">15 years</label>
-                            </div>
-
-                            <div class="answers-control-radiobutton">
-                                <input type="radio" name="answer" id="answer-5" />
-                                <label for="answer-5">20+ years</label>
-                            </div>
+                            <%} %>
 
                         </div>
+
+                        <% } %>
 
                         <a href="javascript:void(0)" class="primaryAction">Submit</a>
                     </div>
@@ -114,7 +103,7 @@
                 <div class="right-pane">
                     <span>Featured Question Answer</span>
                     <div class="featured-answer">
-                        10 Years
+                        <%= featuredQuestion.featuredChoice.body %>
                     </div>
                 </div>
 
@@ -133,105 +122,21 @@
                     <h3>Recent Questions</h3>
 
                     <ul>
-                        <li>
-                            <div class="question-avatar">
-                            </div>
-
-                            <div class="question">
-                                <a href="javascript:void(0)" class="question-author">billy.ipsum23</a> <span>has asked a new question</span><span class="right">asked 14 seconds ago</span>
-                                <a href="javascript:void(0)" class="question-link">My wife just got home. Did she get me the Wendy's Frosty I wanted?</a>
-                            </div>
-                        </li>
+                         <% for(var i = 0; i < latestQuestions.length; i++) { %>
 
                         <li>
                             <div class="question-avatar">
+
                             </div>
 
                             <div class="question">
-                                <a href="javascript:void(0)" class="question-author">billy.ipsum23</a> <span>has asked a new question</span><span class="right">asked 14 seconds ago</span>
-                                <a href="javascript:void(0)" class="question-link">My wife just got home. Did she get me the Wendy's Frosty I wanted?</a>
+                                <a href="<%= latestQuestions[i].author_url %>" class="question-author"><%= latestQuestions[i].author %></a> <span>has asked a new question</span><span class="right">Asked <%= latestQuestions[i].relativeCreated %></span>
+                                <a href="<%= latestQuestions[i].url %>" class="question-link"><%= latestQuestions[i].summary %></a>
                             </div>
+
                         </li>
 
-                        <li>
-                            <div class="question-avatar">
-                            </div>
-
-                            <div class="question">
-                                <a href="javascript:void(0)" class="question-author">billy.ipsum23</a> <span>has asked a new question</span><span class="right">asked 14 seconds ago</span>
-                                <a href="javascript:void(0)" class="question-link">My wife just got home. Did she get me the Wendy's Frosty I wanted?</a>
-                            </div>
-                        </li>
-
-                        <li>
-                            <div class="question-avatar">
-                            </div>
-
-                            <div class="question">
-                                <a href="javascript:void(0)" class="question-author">billy.ipsum23</a> <span>has asked a new question</span><span class="right">asked 14 seconds ago</span>
-                                <a href="javascript:void(0)" class="question-link">My wife just got home. Did she get me the Wendy's Frosty I wanted?</a>
-                            </div>
-                        </li>
-
-                        <li>
-                            <div class="question-avatar">
-                            </div>
-
-                            <div class="question">
-                                <a href="javascript:void(0)" class="question-author">billy.ipsum23</a> <span>has asked a new question</span><span class="right">asked 14 seconds ago</span>
-                                <a href="javascript:void(0)" class="question-link">My wife just got home. Did she get me the Wendy's Frosty I wanted?</a>
-                            </div>
-                        </li>
-
-                        <li>
-                            <div class="question-avatar">
-                            </div>
-
-                            <div class="question">
-                                <a href="javascript:void(0)" class="question-author">billy.ipsum23</a> <span>has asked a new question</span><span class="right">asked 14 seconds ago</span>
-                                <a href="javascript:void(0)" class="question-link">My wife just got home. Did she get me the Wendy's Frosty I wanted?</a>
-                            </div>
-                        </li>
-
-                        <li>
-                            <div class="question-avatar">
-                            </div>
-
-                            <div class="question">
-                                <a href="javascript:void(0)" class="question-author">billy.ipsum23</a> <span>has asked a new question</span><span class="right">asked 14 seconds ago</span>
-                                <a href="javascript:void(0)" class="question-link">My wife just got home. Did she get me the Wendy's Frosty I wanted?</a>
-                            </div>
-                        </li>
-
-                        <li>
-                            <div class="question-avatar">
-                            </div>
-
-                            <div class="question">
-                                <a href="javascript:void(0)" class="question-author">billy.ipsum23</a> <span>has asked a new question</span><span class="right">asked 14 seconds ago</span>
-                                <a href="javascript:void(0)" class="question-link">My wife just got home. Did she get me the Wendy's Frosty I wanted?</a>
-                            </div>
-                        </li>
-
-                        <li>
-                            <div class="question-avatar">
-                            </div>
-
-                            <div class="question">
-                                <a href="javascript:void(0)" class="question-author">billy.ipsum23</a> <span>has asked a new question</span><span class="right">asked 14 seconds ago</span>
-                                <a href="javascript:void(0)" class="question-link">My wife just got home. Did she get me the Wendy's Frosty I wanted?</a>
-                            </div>
-                        </li>
-
-                        <li>
-                            <div class="question-avatar">
-                            </div>
-
-                            <div class="question">
-                                <a href="javascript:void(0)" class="question-author">billy.ipsum23</a> <span>has asked a new question</span><span class="right">asked 14 seconds ago</span>
-                                <a href="javascript:void(0)" class="question-link">My wife just got home. Did she get me the Wendy's Frosty I wanted?</a>
-                            </div>
-                        </li>
+                        <% } %>
 
                     </ul>
 
@@ -240,7 +145,6 @@
                     </div>
 
                     <div class="clear"></div>
-
 
                 </div>
 
@@ -273,54 +177,19 @@
                     <h3>Popular Questions</h3>
 
                     <ul class="popular-list">
-                        <li>
-                            <div class="question-rank">
-                                <span>1</span>
-                            </div>
 
-                            <a href="javascript:void(0)" class="question-link">Why are haters going to hate?</a>
-                            <span class="question-answers-count">750 Answers</span>
-                        </li>
+                        <% for(var i = 0; i < hottestQuestions.length; i++) { %>
 
                         <li>
                             <div class="question-rank">
-                                <span>2</span>
+                                <span><%= i + 1 %></span>
                             </div>
 
-                            <a href="javascript:void(0)" class="question-link">Does this site even work as wellas we think it does?</a>
-                            <span class="question-answers-count">623 Answers</span>
-
+                            <a href="<%= hottestQuestions[i].url %>" class="question-link"><%= hottestQuestions[i].summary %></a>
+                            <span class="question-answers-count"><%= hottestQuestions[i].answered %> Answers</span>
                         </li>
 
-                        <li>
-                            <div class="question-rank">
-                                <span>3</span>
-                            </div>
-
-                            <a href="javascript:void(0)" class="question-link">What is North Korea even trying to prove?</a>
-                            <span class="question-answers-count">618 Answers</span>
-
-                        </li>
-
-                        <li>
-                            <div class="question-rank">
-                                <span>4</span>
-                            </div>
-
-                            <a href="javascript:void(0)" class="question-link">What is special sauce?</a>
-                            <span class="question-answers-count">602 Answers</span>
-
-                        </li>
-
-                        <li>
-                            <div class="question-rank">
-                                <span>5</span>
-                            </div>
-
-                            <a href="javascript:void(0)" class="question-link">Where is Waldo?</a>
-                            <span class="question-answers-count">598 Answers</span>
-
-                        </li>
+                        <% } %>
 
                     </ul>
 

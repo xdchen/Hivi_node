@@ -97,6 +97,36 @@ DataProvider.prototype.findAllQuestions = function (callback) {
     });
 };
 */
+
+DataProvider.prototype.findFeaturedQuestion = function (callback) {
+    this.getCollection('questions', function (err, collection) {
+        if (err) {
+            callback(err);
+        }
+        else {
+            collection.find({}, { // exclude following fields               
+                created_at: 0,
+                views: 0,
+                lastanswered_at: 0,
+                comments: 0
+            })
+            .sort([['lastanswered_at', -1]])
+            .limit(1)
+            .toArray(function (err, results) {
+                if (err) {
+                    callback(err);                    
+                }
+                else {
+                    if (results.length < 1)
+                        callback(null, null);
+                    else
+                        callback(null, results[0]);
+                }
+            });
+        }
+    });
+};
+
 DataProvider.prototype.findLatestQuestions = function (count, callback) {
     this.getCollection('questions', function (err, collection) {
         if (err) {
