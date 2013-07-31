@@ -108,9 +108,10 @@ DataProvider.prototype.findFeaturedQuestion = function (callback) {
                 created_at: 0,
                 views: 0,
                 lastanswered_at: 0,
-                comments: 0
+                comments: 0,
+                results: 0
             })
-            .sort([['lastanswered_at', -1]])
+            .sort([['lastanswered_at', -1], ['answered', -1]])
             .limit(1)
             .toArray(function (err, results) {
                 if (err) {

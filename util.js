@@ -60,33 +60,21 @@ exports.decorateQuestionForDetailView = function (question) {
         question.author_url = toUserProfileUrl(author_id);
     }
 
-    var choice_type = question.choice_type;
-    var results = question.results;
-    if (results && choice_type) {
+    var choice_type = question.choice_type;   
+    if (choice_type) {
         switch (choice_type) {
-            case 'Single': // raido button list
+            case 'Single': // raido button list   
                 var choices = question.choices;
-                for (var i = 0; i < choices.length; i++) {
-                    choices[i].count = 0;
-                }
-
-                for (var i = 0; i < results.length; i++) {
-                    var result = results[i];
-                    for (var j = 0; j < choices.length; j++) {
-                        var choice = choices[j];
-                        if (result.choice_id === choice.id) {
-                            choice.count++;
-                            break;
-                        }
+                if (choices && choices.length > 1) {
+                    var featuredChoice = choices[0];
+                    for (var i = 1; i < choices.length; i++) {
+                        if (choices[i].count > featuredChoice.count)
+                            featuredChoice = choices[i];
                     }
+                    question.featuredChoice = featuredChoice;
                 }
-
-                var featuredChoice = choices[0];
-                for (var i = 1; i < choices.length; i++) {
-                    if (choices[i].count > featuredChoice.count)
-                        featuredChoice = choices[i];
-                }                
-                question.featuredChoice = featuredChoice;
+                else
+                    throw new Error('single choice question must have more than one choice');
                 break;
 
             default:
@@ -108,5 +96,5 @@ exports.constants = {
     dbServer: 'localhost',
     dbServerPort: 27017,
     dbName: 'hivinate',
-    cacheTime: 60 * 1000
+    cacheTime: 5 // 5 minutes
 };

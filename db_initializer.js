@@ -14,11 +14,13 @@ MongoClient.connect('mongodb://localhost:27017/hivinate?w=1', function (err, db)
             choices: [
                 {
                     id: 1,
-                    body: 'Yes'
+                    body: 'Yes',
+                    count: 0
                 },
                 {
                     id: 2,
-                    body: 'No'
+                    body: 'No',
+                    count: 0
                 }
             ],            
             tags: [
@@ -42,11 +44,13 @@ MongoClient.connect('mongodb://localhost:27017/hivinate?w=1', function (err, db)
                 choices: [
                     {
                         id: 1,
-                        body: 'Yes'
+                        body: 'Yes',
+                        count: 0
                     },
                     {
                         id: 2,
-                        body: 'No'
+                        body: 'No',
+                        count: 0
                     }
                 ],
                 
@@ -72,15 +76,18 @@ MongoClient.connect('mongodb://localhost:27017/hivinate?w=1', function (err, db)
                 choices: [
                     {
                         id: 1,
-                        body: '100'
+                        body: '100',
+                        count: 0
                     },
                     {
                         id: 2,
-                        body: '50'
+                        body: '50',
+                        count: 0
                     },
                     {
                         id: 3,
-                        body: '20'
+                        body: '20',
+                        count: 0
                     }
 
                 ],                
@@ -106,15 +113,18 @@ MongoClient.connect('mongodb://localhost:27017/hivinate?w=1', function (err, db)
                 choices: [
                     {
                         id: 1,
-                        body: '10'
+                        body: '10',
+                        count: 0
                     },
                     {
                         id: 2,
-                        body: '15'
+                        body: '15',
+                        count: 0
                     },
                     {
                         id: 3,
-                        body: '25'
+                        body: '25',
+                        count: 0
                     }
                 ],
                 
@@ -140,15 +150,18 @@ MongoClient.connect('mongodb://localhost:27017/hivinate?w=1', function (err, db)
                 choices: [
                     {
                         id: 1,
-                        body: 'USA'
+                        body: 'USA',
+                        count: 0
                     },
                     {
                         id: 2,
-                        body: 'Canada'
+                        body: 'Canada',
+                        count: 0
                     },
                     {
                         id: 3,
-                        body: 'Mexico'
+                        body: 'Mexico',
+                        count: 0
                     }
                 ],                
                 tags: [
@@ -173,11 +186,13 @@ MongoClient.connect('mongodb://localhost:27017/hivinate?w=1', function (err, db)
                 choices: [
                     {
                         id: 1,
-                        body: 'Flicker'
+                        body: 'Flicker',
+                        count: 0
                     },
                     {
                         id: 2,
-                        body: 'Facebook'
+                        body: 'Facebook',
+                        count: 0
                     },
                     {
                         id: 3,
@@ -185,7 +200,8 @@ MongoClient.connect('mongodb://localhost:27017/hivinate?w=1', function (err, db)
                     },
                     {
                         id: 4,
-                        body: 'Google+'
+                        body: 'Google',
+                        count: 0
                     }
                 ],                
                 tags: [
@@ -210,11 +226,13 @@ MongoClient.connect('mongodb://localhost:27017/hivinate?w=1', function (err, db)
                 choices: [
                     {
                         id: 1,
-                        body: 'Say goodbye to all'
+                        body: 'Say goodbye to all',
+                        count: 0
                     },
                     {
                         id: 2,
-                        body: 'Send farewell email'
+                        body: 'Send farewell email',
+                        count: 0
                     }
                 ],
                 tags: [
@@ -239,11 +257,13 @@ MongoClient.connect('mongodb://localhost:27017/hivinate?w=1', function (err, db)
                   choices: [
                       {
                           id: 1,
-                          body: 'Stupid'
+                          body: 'Stupid',
+                          count: 440
                       },
                       {
                           id: 2,
-                          body: 'No reason'
+                          body: 'No reason',
+                          count: 310
                       }
                   ],
                   tags: [
@@ -268,11 +288,13 @@ MongoClient.connect('mongodb://localhost:27017/hivinate?w=1', function (err, db)
                    choices: [
                        {
                            id: 1,
-                           body: 'Yes'
+                           body: 'Yes',
+                           count: 463
                        },
                        {
                            id: 2,
-                           body: 'No'
+                           body: 'No',
+                           count: 260
                        }
                    ],                   
                    tags: [
@@ -280,7 +302,7 @@ MongoClient.connect('mongodb://localhost:27017/hivinate?w=1', function (err, db)
                    ],
                    thumb: '',
                    views: 1430,
-                   answered: 623,
+                   answered: 723,
                    lastanswered_at: new Date(),
                    comments: [
                    ],
@@ -297,11 +319,13 @@ MongoClient.connect('mongodb://localhost:27017/hivinate?w=1', function (err, db)
                     choices: [
                         {
                             id: 1,
-                            body: 'strong willing to destroy the world'
+                            body: 'strong willing to destroy the world',
+                            count: 450
                         },
                         {
                             id: 2,
-                            body: 'to invade South Korea'
+                            body: 'to invade South Korea',
+                            count: 300
                         }
                     ],
                     tags: [

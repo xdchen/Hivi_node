@@ -10,7 +10,8 @@ var question =
     choices: [
         {
             id: 0,
-            body: ''
+            body: '',
+            count: 0
         }
     ],    
     tags: [

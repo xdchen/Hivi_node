@@ -1,5 +1,5 @@
 exports.route = function (app) {
-    app.all('/', require('./views/index').index);
-    app.all('/questions', require('./views/questions/index').index);
+    app.all('/', require('./views/controller').index);
+    app.all('/questions', require('./views/questions/controller').index);
     //app.get('/question/:questionId', question.question);
 };

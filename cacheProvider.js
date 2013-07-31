@@ -14,17 +14,22 @@ exports.put = function (key, value, time, timeoutCallback) {
         clearTimeout(oldRecord.timeout);
     }
 
-    var expire = time + now();
-    var record = { value: value, expire: expire };
+    var record = { value: value };
 
-    if (!isNaN(expire)) {
-        var timeout = setTimeout(function () {
-            exports.del(key);
-            if (typeof timeoutCallback === 'function') {
-                timeoutCallback(key);
-            }
-        }, time);
-        record.timeout = timeout;
+    if (typeof time === 'number' && time > 0) {
+        var timeInMilliSeconds = time * 60 * 1000;
+        var expire = timeInMilliSeconds + now();
+        record.expire = expire;
+
+        if (!isNaN(expire)) {
+            var timeout = setTimeout(function () {
+                exports.del(key);
+                if (typeof timeoutCallback === 'function') {
+                    timeoutCallback(key);
+                }
+            }, timeInMilliSeconds);
+            record.timeout = timeout;
+        }
     }
 
     cache[key] = record;
