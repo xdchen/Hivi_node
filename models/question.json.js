@@ -35,5 +35,6 @@ var question =
             choice_id: 0,
             created_at: new Date()
         }
-    ]
+    ],
+    verion: 0
 };

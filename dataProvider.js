@@ -66,37 +66,6 @@ DataProvider.prototype.findQuestionById = function (id, callback) {
         }
     });
 };
-/*
-DataProvider.prototype.findAllQuestions = function (callback) {
-    this.getCollection('questions', function (err, collection) {
-        if (err) {
-            callback(err);
-        }
-        else {
-            collection.find({}, { // exclude following fields
-                author: 0,
-                author_id: 0,
-                created_at: 0,
-                choice_type: 0,
-                choices: 0,
-                thumb: 0,
-                tags: 0,
-                views: 0,
-                lastanswered_at: 0,
-                comments: 0,
-                results: 0
-            }).toArray(function (err, results) {
-                if (err) {
-                    callback(err);
-                }
-                else {
-                    callback(null, results);
-                }
-            });
-        }
-    });
-};
-*/
 
 DataProvider.prototype.findFeaturedQuestion = function (callback) {
     this.getCollection('questions', function (err, collection) {
@@ -109,7 +78,8 @@ DataProvider.prototype.findFeaturedQuestion = function (callback) {
                 views: 0,
                 lastanswered_at: 0,
                 comments: 0,
-                results: 0
+                results: 0,
+                version: 0
             })
             .sort([['lastanswered_at', -1], ['answered', -1]])
             .limit(1)
@@ -142,7 +112,8 @@ DataProvider.prototype.findLatestQuestions = function (count, callback) {
                 answered: 0,
                 lastanswered_at: 0,
                 comments: 0,
-                results: 0
+                results: 0,
+                version: 0
             })
             .sort([['created_at', -1]])
             .limit(count)
@@ -175,7 +146,8 @@ DataProvider.prototype.findHottestQuestions = function (count, callback) {
                 views: 0,
                 lastanswered_at: 0,
                 comments: 0,
-                results: 0
+                results: 0,
+                version: 0
             })
             .sort([['answered', -1]])
             .limit(count)
@@ -185,6 +157,31 @@ DataProvider.prototype.findHottestQuestions = function (count, callback) {
                 }
                 else {
                     callback(null, results);
+                }
+            });
+        }
+    });
+};
+
+DataProvider.prototype.findQuestionById = function (id, callback) {
+    this.getCollection('questions', function (err, collection) {
+        if (err) {
+            callback(err);
+        }
+        else {
+            collection.findOne({ _id: id}, { // exclude following fields
+                created_at: 0,
+                views: 0,
+                lastanswered_at: 0,
+                comments: 0,
+                results: 0,
+                version: 0
+            }, function (err, question) {
+                if (err) {
+                    callback(err);
+                }
+                else {
+                    callback(null, question);
                 }
             });
         }

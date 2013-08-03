@@ -33,7 +33,8 @@ MongoClient.connect('mongodb://localhost:27017/hivinate?w=1', function (err, db)
             comments: [
             ],
             results: [
-            ]
+            ],
+            version: 0
         },
             {
                 body: 'Are the best things in life free',
@@ -64,7 +65,8 @@ MongoClient.connect('mongodb://localhost:27017/hivinate?w=1', function (err, db)
                 comments: [
                 ],
                 results: [
-                ]
+                ],
+                version: 0
             },
 
             {
@@ -101,7 +103,8 @@ MongoClient.connect('mongodb://localhost:27017/hivinate?w=1', function (err, db)
                 comments: [
                 ],
                 results: [
-                ]
+                ],
+                version: 0
             },
 
             {
@@ -138,7 +141,8 @@ MongoClient.connect('mongodb://localhost:27017/hivinate?w=1', function (err, db)
                 comments: [
                 ],
                 results: [
-                ]
+                ],
+                version: 0
             },
 
             {
@@ -174,7 +178,8 @@ MongoClient.connect('mongodb://localhost:27017/hivinate?w=1', function (err, db)
                 comments: [
                 ],
                 results: [
-                ]
+                ],
+                version: 0
             },
 
             {
@@ -214,7 +219,8 @@ MongoClient.connect('mongodb://localhost:27017/hivinate?w=1', function (err, db)
                 comments: [
                 ],
                 results: [
-                ]
+                ],
+                version: 0
             },
 
             {
@@ -245,9 +251,55 @@ MongoClient.connect('mongodb://localhost:27017/hivinate?w=1', function (err, db)
                 comments: [
                 ],
                 results: [
-                ]
+                ],
+                version: 0
             },
-
+            {
+                body: 'How many years before North Korea snpas and bombs everything?',
+                author: 'Whodoneit32',
+                author_id: new ObjectID(),
+                created_at: new Date(),
+                choice_type: 'Single',
+                choices: [
+                    {
+                        id: 1,
+                        body: 'never',
+                        count: 440
+                    },
+                    {
+                        id: 2,
+                        body: '5 years',
+                        count: 310
+                    },
+                    {
+                        id: 3,
+                        body: '10 years',
+                        count: 450
+                    },
+                    {
+                        id: 4,
+                        body: '15 years',
+                        count: 300
+                    },
+                    {
+                        id: 5,
+                        body: '20+ years',
+                        count: 100
+                    }
+                ],
+                tags: [
+                    'haters'
+                ],
+                thumb: '',
+                views: 2000,
+                answered: 1600,
+                lastanswered_at: new Date(),
+                comments: [
+                ],
+                results: [
+                ],
+                version: 0
+            },
               {
                   body: 'Why are haters going to hate?',
                   author: 'JIpsumGuy456',
@@ -276,7 +328,8 @@ MongoClient.connect('mongodb://localhost:27017/hivinate?w=1', function (err, db)
                   comments: [
                   ],
                   results: [
-                  ]
+                  ],
+                  version: 0
               },
 
                {
@@ -307,7 +360,8 @@ MongoClient.connect('mongodb://localhost:27017/hivinate?w=1', function (err, db)
                    comments: [
                    ],
                    results: [
-                   ]
+                   ],
+                   version: 0
                },
 
                 {
@@ -338,7 +392,8 @@ MongoClient.connect('mongodb://localhost:27017/hivinate?w=1', function (err, db)
                     comments: [
                     ],
                     results: [
-                    ]
+                    ],
+                    version: 0
                 }
         ];
 
