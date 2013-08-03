@@ -14,7 +14,8 @@ exports.index = function (req, res, next) {
                 req.db.findHottestQuestions(5, function (err, hottestQuestions) {
                     if (err) {
                         next(err);
-                    } else {
+                    }
+                    else {
                         req.db.findFeaturedQuestion(function (err, featuredQuestion) {
                             if (err) {
                                 next(err);
@@ -34,8 +35,7 @@ exports.index = function (req, res, next) {
                                     res.render('questions/index.html', viewModel);
                                 }
                             }
-                        });
-                        
+                        });                        
                     }
                 });
             }

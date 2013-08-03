@@ -52,15 +52,21 @@ DataProvider.prototype.getCollection = function (name, callback) {
 DataProvider.prototype.findQuestionById = function (id, callback) {
     this.getCollection('questions', function (err, collection) {
         if (err) {
-            callback(error);
+            callback(err);
         }
         else {
-            collection.findOne({ _id: id }, function (err, result) {
+            collection.findOne({ _id: id }, { // exclude following fields
+                created_at: 0,
+                views: 0,
+                lastanswered_at: 0,                
+                results: 0,
+                version: 0
+            }, function (err, question) {
                 if (err) {
                     callback(err);
                 }
                 else {
-                    callback(null, result);
+                    callback(null, question);
                 }
             });
         }
@@ -75,6 +81,7 @@ DataProvider.prototype.findFeaturedQuestion = function (callback) {
         else {
             collection.find({}, { // exclude following fields               
                 created_at: 0,
+                tags: 0,
                 views: 0,
                 lastanswered_at: 0,
                 comments: 0,
@@ -135,13 +142,9 @@ DataProvider.prototype.findHottestQuestions = function (count, callback) {
             callback(err);
         }
         else {
-            collection.find({}, { // exclude following fields
-                author: 0,
-                author_id: 0,
-                created_at: 0,
+            collection.find({}, { // exclude following fields                
                 choice_type: 0,
                 choices: 0,
-                thumb: 0,
                 tags: 0,
                 views: 0,
                 lastanswered_at: 0,
@@ -163,30 +166,37 @@ DataProvider.prototype.findHottestQuestions = function (count, callback) {
     });
 };
 
-DataProvider.prototype.findQuestionById = function (id, callback) {
+DataProvider.prototype.findRelatedQuestions = function (tags, count, question_id, callback) {
     this.getCollection('questions', function (err, collection) {
         if (err) {
             callback(err);
         }
         else {
-            collection.findOne({ _id: id}, { // exclude following fields
-                created_at: 0,
+            collection.find({ tags: { $in: tags }, _id: { $ne: question_id } }, { // exclude following fields
+                choice_type: 0,
+                choices: 0,
+                tags: 0,
                 views: 0,
                 lastanswered_at: 0,
                 comments: 0,
                 results: 0,
                 version: 0
-            }, function (err, question) {
+            })
+            .sort([['answered', -1]])
+            .limit(count)
+            .toArray(function (err, results) {
                 if (err) {
                     callback(err);
                 }
                 else {
-                    callback(null, question);
+                    callback(null, results);
                 }
             });
         }
     });
 };
+
+
 
 DataProvider.prototype.close = function () {
     this.db.close();

@@ -59,8 +59,14 @@
                 <div class="breadcurb">
                     <a href="javascript:void(0)">Home</a> <span>/</span>
                     <a href="javascript:void(0)">Questions</a> <span>/</span>
-                    <a href="javascript:void(0)">Politics</a> <span>/</span>
-                    <a href="javascript:void(0)">Crazy Bastards</a>
+                    
+                    <% for(var i = 0; i < question.tags.length; i++){ %>                    
+                    <a href="<%= question.tags[i].tag_url %>"><%= question.tags[i].tag %></a>                     
+                        <% if(i < question.tags.length - 1){ %>
+                            <span>/</span>                    
+                        <% } %>
+                    <% } %>
+                    
                 </div>
 
 
@@ -71,43 +77,32 @@
                     </div>
 
                     <div class="question">
-                        <a href="javascript:void(0)" class="question-author">Whodoneit32</a> <span>has asked</span>
-                        <a href="javascript:void(0)" class="question-link">How many years before North Korea snpas and bombs everything?</a>
+                        <a href="<%= question.author_url %>" class="question-author"><%= question.author %></a> <span>has asked</span>
+                        <a href="javascript:void(0)" class="question-link"><%= question.body %></a>
                     </div>
 
                     <div class="answers">
+
+                        <% if(question.choice_type === 'Single'){ %>
+
                         <div class="answers-tip">
                             Possible Answers (select and click submit):
                         </div>
 
                         <div class="answers-control">
 
+                            <% for(var i = 0; i < question.choices.length; i++){ %>
+                            
                             <div class="answers-control-radiobutton">
-                                <input type="radio" name="answer" id="answer-1" />
-                                <label for="answer-1">never</label>
+                                <input type="radio" name="answer" id="answer-<%= question.choices[i].id %>" />
+                                <label for="answer-<%= question.choices[i].id %>"><%= question.choices[i].body %></label>
                             </div>
 
-                            <div class="answers-control-radiobutton">
-                                <input type="radio" name="answer" id="answer-2" />
-                                <label for="answer-2">5 years</label>
-                            </div>
-
-                            <div class="answers-control-radiobutton">
-                                <input type="radio" name="answer" id="answer-3" />
-                                <label for="answer-3">10 years</label>
-                            </div>
-
-                            <div class="answers-control-radiobutton">
-                                <input type="radio" name="answer" id="answer-4" />
-                                <label for="answer-4">15 years</label>
-                            </div>
-
-                            <div class="answers-control-radiobutton">
-                                <input type="radio" name="answer" id="answer-5" />
-                                <label for="answer-5">20+ years</label>
-                            </div>
+                            <%} %>
 
                         </div>
+
+                        <% } %>
 
                         <a href="javascript:void(0)" class="primaryAction">Submit</a>
                     </div>
@@ -116,7 +111,7 @@
                 <div class="right-pane">
                     <span>Featured Question Answer</span>
                     <div class="featured-answer">
-                        10 Years
+                        <%= question.featuredChoice.body %>
                     </div>
                 </div>
 
@@ -142,13 +137,16 @@
                     <h3>Comments</h3>
 
                     <ul>
+
+                        <% for(var i = 0; i < question.comments.length; i++){ %>
+
                         <li>
                             <div class="comment-avatar">
                             </div>
 
                             <div class="comment">
-                                <a href="javascript:void(0)" class="comment-author">billy.ipsum23</a> <span>says</span><span class="right">commented on Jan, 13th 2012</span>
-                                <div class="comment-content">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum</div>
+                                <a href="<%= question.comments[i].author_url %>" class="comment-author"><%= question.comments[i].author %></a> <span>says</span><span class="right">commented on <%= question.comments[i].created_date %></span>
+                                <div class="comment-content"><%= question.comments[i].body %></div>
                                 <div class="comment-vote">
                                     <a href="javascript:void(0)" class="comment-vote-upvote">Upvote</a>
                                     <span>|</span>
@@ -158,69 +156,8 @@
                             </div>
                         </li>
 
-                        <li>
-                            <div class="comment-avatar">
-                            </div>
-
-                            <div class="comment">
-                                <a href="javascript:void(0)" class="comment-author">Spacelipsum43</a> <span>says</span><span class="right">commented on Jan, 13th 2012</span>
-                                <div class="comment-content">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum</div>
-                                <div class="comment-vote">
-                                    <a href="javascript:void(0)" class="comment-vote-upvote">Upvote</a>
-                                    <span>|</span>
-                                    <a href="javascript:void(0)" class="comment-vote-downvote">Downvote</a>
-                                </div>
-                                <div class="clear"></div>
-                            </div>
-                        </li>
-
-                        <li>
-                            <div class="comment-avatar">
-                            </div>
-
-                            <div class="comment">
-                                <a href="javascript:void(0)" class="comment-author">billy.ipsum23</a> <span>says</span><span class="right">commented on Jan, 13th 2012</span>
-                                <div class="comment-content">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum</div>
-                                <div class="comment-vote">
-                                    <a href="javascript:void(0)" class="comment-vote-upvote">Upvote</a>
-                                    <span>|</span>
-                                    <a href="javascript:void(0)" class="comment-vote-downvote">Downvote</a>
-                                </div>
-                                <div class="clear"></div>
-                            </div>
-                        </li>
-
-                        <li>
-                            <div class="comment-avatar">
-                            </div>
-
-                            <div class="comment">
-                                <a href="javascript:void(0)" class="comment-author">billy.ipsum23</a> <span>says</span><span class="right">commented on Jan, 13th 2012</span>
-                                <div class="comment-content">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum</div>
-                                <div class="comment-vote">
-                                    <a href="javascript:void(0)" class="comment-vote-upvote">Upvote</a>
-                                    <span>|</span>
-                                    <a href="javascript:void(0)" class="comment-vote-downvote">Downvote</a>
-                                </div>
-                                <div class="clear"></div>
-                            </div>
-                        </li>
-
-                        <li>
-                            <div class="comment-avatar">
-                            </div>
-
-                            <div class="comment">
-                                <a href="javascript:void(0)" class="comment-author">billy.ipsum23</a> <span>says</span><span class="right">commented on Jan, 13th 2012</span>
-                                <div class="comment-content">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum</div>
-                                <div class="comment-vote">
-                                    <a href="javascript:void(0)" class="comment-vote-upvote">Upvote</a>
-                                    <span>|</span>
-                                    <a href="javascript:void(0)" class="comment-vote-downvote">Downvote</a>
-                                </div>
-                                <div class="clear"></div>
-                            </div>
-                        </li>
+                        <% } %>
+                        
                     </ul>
 
                     <div class="comment-submit">
@@ -237,55 +174,15 @@
                     <h3>Related Questions</h3>
 
                     <ul class="related-questions">
-                        <li>
-                            <a href="javascript:void(0)" class="question-author">billy.ipsum23</a><span>has asked a new question</span>
-                            <a href="javascript:void(0)" class="question-link">This question was only meant to serve the purpose of showing that a second line is pretty. How did it do?</a>
-                        </li>
+
+                        <% for(var i = 0; i < relatedQuestions.length; i++) { %>
 
                         <li>
-                            <a href="javascript:void(0)" class="question-author">billy.ipsum23</a><span>has asked a new question</span>
-                            <a href="javascript:void(0)" class="question-link">Why is the USA so far in debt?</a>
+                            <a href="<%= relatedQuestions[i].author_url %>" class="question-author"><%= relatedQuestions[i].author %></a><span>has asked a new question</span>
+                            <a href="<%= relatedQuestions[i].url %>" class="question-link"><%= relatedQuestions[i].summary %></a>
                         </li>
 
-                        <li>
-                            <a href="javascript:void(0)" class="question-author">billy.ipsum23</a><span>has asked a new question</span>
-                            <a href="javascript:void(0)" class="question-link">How much firepower does North Korea actually have?</a>
-                        </li>
-
-                        <li>
-                            <a href="javascript:void(0)" class="question-author">billy.ipsum23</a><span>has asked a new question</span>
-                            <a href="javascript:void(0)" class="question-link">When in doubt what do you do?</a>
-                        </li>
-
-                        <li>
-                            <a href="javascript:void(0)" class="question-author">billy.ipsum23</a><span>has asked a new question</span>
-                            <a href="javascript:void(0)" class="question-link">Some questions don't make sense, banana cupcakes?</a>
-                        </li>
-
-                        <li>
-                            <a href="javascript:void(0)" class="question-author">billy.ipsum23</a><span>has asked a new question</span>
-                            <a href="javascript:void(0)" class="question-link">This question was only meant to serve the purpose of showing that a second line is pretty. How did it do?</a>
-                        </li>
-
-                        <li>
-                            <a href="javascript:void(0)" class="question-author">billy.ipsum23</a><span>has asked a new question</span>
-                            <a href="javascript:void(0)" class="question-link">Why is the USA so far in debt?</a>
-                        </li>
-
-                        <li>
-                            <a href="javascript:void(0)" class="question-author">billy.ipsum23</a><span>has asked a new question</span>
-                            <a href="javascript:void(0)" class="question-link">How much firepower does North Korea actually have?</a>
-                        </li>
-
-                        <li>
-                            <a href="javascript:void(0)" class="question-author">billy.ipsum23</a><span>has asked a new question</span>
-                            <a href="javascript:void(0)" class="question-link">When in doubt what do you do?</a>
-                        </li>
-
-                        <li>
-                            <a href="javascript:void(0)" class="question-author">billy.ipsum23</a><span>has asked a new question</span>
-                            <a href="javascript:void(0)" class="question-link">Some questions don't make sense, banana cupcakes?</a>
-                        </li>
+                        <% } %>
 
                     </ul>
                 </div>

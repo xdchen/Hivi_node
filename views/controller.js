@@ -11,11 +11,13 @@ exports.index = function (req, res, next) {
         req.db.findLatestQuestions(8, function (err, latestQuestions) {
             if (err) {
                 next(err);
-            } else {
+            }
+            else {
                 req.db.findHottestQuestions(5, function (err, hottestQuestions) {
                     if (err) {
                         next(err);
-                    } else {
+                    }
+                    else {
                         req.db.close();
                         viewModel = {
                             latestQuestions: util.decorateQuestionsForListView(latestQuestions),

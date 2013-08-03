@@ -10,6 +10,10 @@ var toRelativeTime = function (date) {
     return moment(date).fromNow();
 };
 
+var toDateTime = function (date) {
+    return moment(date).format('MMMM Do YYYY');
+};
+
 var toUserProfileUrl = function (userId) {
     return "/user/" + userId;
 };
@@ -20,6 +24,10 @@ var toQuestionUrl = function (questionId) {
 
 var toPostAnswerUrl = function (questionId) {
     return "/question/postanswer/" + questionId;
+};
+
+var toTagUrl = function(tag){
+    return "/tags/" + encodeURI(tag);
 };
 
 var decorateQuestionForListView = function (question) {
@@ -81,6 +89,36 @@ exports.decorateQuestionForDetailView = function (question) {
                 throw new Error('not implemented');
                 break;
         }
+    }
+
+    var tags = question.tags;
+    if (tags) {
+        var newTags = [];
+        for (var i = 0; i < tags.length; i++) {
+            var tag = tags[i];
+            var newTag = {
+                tag_url : toTagUrl(tag),
+                tag: tag
+            };
+            newTags.push(newTag);
+        }
+        question.tags = newTags;
+    }
+
+    var comments = question.comments;
+    if (comments) {
+        var newComments = [];
+        for (var i = 0; i < comments.length; i++) {
+            var comment = comments[i];
+            var newComment = {
+                body: comment.body,
+                author: comment.author,
+                author_url: toUserProfileUrl(comment.author_id),
+                created_date: toDateTime(comment.created_at)
+            };
+            newComments.push(newComment);
+        }
+        question.comments = newComments;
     }
 
     var question_id = question._id.toString();
