@@ -5,6 +5,7 @@ var ObjectID = require('mongodb').ObjectID;
 MongoClient.connect('mongodb://localhost:27017/hivinate?w=1', function (err, db) {
     db.collection('questions', function (err, collection) {
 
+        // insert some dummy questions
         var questions = [{
             body: 'My wife just got home, Did she get me the Wendy\'s Frosty I wanted',
             author: 'suzieQ2345',
@@ -400,5 +401,9 @@ MongoClient.connect('mongodb://localhost:27017/hivinate?w=1', function (err, db)
         collection.insert(questions, function (err, result) {
             db.close();
         });
+
+        // insert more -- to do
+
+
     });
 });

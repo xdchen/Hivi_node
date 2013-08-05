@@ -1,4 +1,5 @@
-// refered: https://github.com/ptarjan/node-cache
+// https://github.com/ptarjan/node-cache
+// updates: 
 // added clearTimeout when deleting key or clearing all cache
 
 var cache = {}

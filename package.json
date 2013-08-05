@@ -6,6 +6,7 @@
 		"express": "3.3.4",
 		"ejs": "*",
 		"mongodb": "*",
-		"moment": "2.1.0"
+		"moment": "2.1.0",
+		"async": "*"
 	}
 }
