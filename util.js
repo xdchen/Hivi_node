@@ -1,4 +1,5 @@
 var moment = require('moment');
+var sanitizer = require('sanitizer');
 
 var toSummary = function (body, length) {
     if (body.length <= length) return body;
@@ -11,7 +12,7 @@ var toRelativeTime = function (date) {
 };
 
 var toDateTime = function (date) {
-    return moment(date).format('MMMM Do YYYY');
+    return moment(date).calendar();
 };
 
 var toUserProfileUrl = function (userId) {
@@ -23,7 +24,11 @@ var toQuestionUrl = function (questionId) {
 };
 
 var toPostAnswerUrl = function (questionId) {
-    return "/question/postanswer/" + questionId;
+    return "/question/" + questionId + '/answer';
+};
+
+var toPostCommentUrl = function (questionId) {
+    return "/question/" + questionId + '/comment';
 };
 
 var toTagUrl = function(tag){
@@ -51,6 +56,16 @@ var decorateQuestionForListView = function (question) {
         question.url = toQuestionUrl(question_id);
     }
     return question;
+};
+
+exports.decorateQuestionComment = function (comment) {
+    var newComment = {
+        body: comment.body,
+        author: comment.author,
+        author_url: toUserProfileUrl(comment.author_id),
+        created_date: toDateTime(comment.created_at)
+    };
+    return newComment;
 };
 
 exports.decorateQuestionsForListView = function (questions) {
@@ -109,25 +124,24 @@ exports.decorateQuestionForDetailView = function (question) {
     if (comments) {
         var newComments = [];
         for (var i = 0; i < comments.length; i++) {
-            var comment = comments[i];
-            var newComment = {
-                body: comment.body,
-                author: comment.author,
-                author_url: toUserProfileUrl(comment.author_id),
-                created_date: toDateTime(comment.created_at)
-            };
-            newComments.push(newComment);
+            newComments.push(exports.decorateQuestionComment(comments[i]));
         }
-        question.comments = newComments;
+        question.comments = newComments;        
     }
 
     var question_id = question._id.toString();
     if (question_id) {
         question.url = toQuestionUrl(question_id);
         question.postAnswerUrl = toPostAnswerUrl(question_id);
+        question.postCommentUrl = toPostCommentUrl(question_id);
     }
 
     return question;
+};
+
+exports.filterProfanity = function (input) {
+    var safeInput = sanitizer.escape(input);
+    return safeInput;
 };
 
 exports.constants = {

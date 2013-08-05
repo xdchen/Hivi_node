@@ -159,6 +159,76 @@ DataProvider.prototype.findRelatedQuestions = function (tags, count, question_id
         });        
     });
 };
+
+DataProvider.prototype.addQuestionViews = function (question_id, callback) {
+    this.getCollection('questions', function (err, collection) {
+        if (err) {
+            callback(err);
+            return;
+        }
+
+        collection.update({ _id: question_id },
+                { $inc: { views: 1 } },
+                function (err, result) {
+                    err ? callback(err) : callback(null, result);
+                });
+    });
+};
+
+DataProvider.prototype.postQuestionComments = function (comments, question_id, callback) {
+    this.getCollection('questions', function (err, collection) {
+        if (err) {
+            callback(err);
+            return;
+        }
+
+        collection.findOne({ _id: question_id }, { // exclude following fields
+            body: 0,
+            author: 0,
+            author_id: 0,
+            created_at: 0,
+            choice_type: 0,
+            choices: 0,
+            tags: 0,
+            thumb: 0,            
+            views: 0,
+            answered: 0,
+            lastanswered_at: 0,
+            results: 0
+        }, function (err, question) {
+            if (err) {
+                callback(err);
+                return;
+            }
+
+            if (!question) {
+                callback(new Error('no question found'));
+                return;
+            }
+
+            var oldVersion = question.version;
+            question.comments = question.comments.concat(comments);
+            question.version = oldVersion + 1;
+
+            collection.update({ _id: question_id, version: oldVersion },
+                { $set: { comments: question.comments, version: question.version } },
+                function (err, result) {
+                    if (err) {
+                        callback(err);
+                        return;
+                    }
+
+                    if (!result) {
+                        this.postComments(comments, question_id, callback);
+                        return;
+                    }
+
+                    callback(null, result);
+            });
+        });
+    });
+
+};
 // ---- end questions ---- //
 
 
