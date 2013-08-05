@@ -79,7 +79,7 @@ DataProvider.prototype.findFeaturedQuestion = function (callback) {
         .sort([['lastanswered_at', -1], ['answered', -1]])
         .limit(1)
         .toArray(function (err, results) {
-            err || results.length < 1 ? callback(err) : callback(null, results[0]);
+            err? callback(err) : callback(null, results.length == 1 ? results[0] : null);
         });        
     });
 };
