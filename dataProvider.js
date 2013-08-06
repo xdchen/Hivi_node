@@ -20,7 +20,7 @@ DataProvider.prototype.createObjectId = function (id) {
 
 DataProvider.prototype.getCollection = function (name, callback) {
     if (this.db.serverConfig.connected) {
-        // already connected
+        // connected
         this.db.collection(name, function (err, collection) {
             err ? callback(err) : callback(null, collection);
         });
@@ -52,7 +52,6 @@ DataProvider.prototype.findQuestionById = function (id, callback) {
             created_at: 0,
             views: 0,
             lastanswered_at: 0,
-            results: 0,
             version: 0
         }, function (err, question) {
             err ? callback(err) : callback(null, question);
@@ -69,11 +68,9 @@ DataProvider.prototype.findFeaturedQuestion = function (callback) {
         
         collection.find({}, { // exclude following fields               
             created_at: 0,
-            tags: 0,
             views: 0,
             lastanswered_at: 0,
             comments: 0,
-            results: 0,
             version: 0
         })
         .sort([['lastanswered_at', -1], ['answered', -1]])

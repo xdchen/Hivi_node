@@ -1,8 +1,10 @@
 // db initializer
 var MongoClient = require('mongodb').MongoClient;
 var ObjectID = require('mongodb').ObjectID;
+var config = require('./config');
+var connection_str = 'mongodb://' + config.db.server + ':' + config.db.port + '/' + config.db.name + '?w=1';
 
-MongoClient.connect('mongodb://localhost:27017/hivinate?w=1', function (err, db) {
+MongoClient.connect(connection_str, function (err, db) {
     db.collection('questions', function (err, collection) {
 
         // insert some dummy questions

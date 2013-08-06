@@ -35,7 +35,7 @@ var toTagUrl = function(tag){
     return "/tags/" + encodeURI(tag);
 };
 
-var decorateQuestionForListView = function (question) {
+exports.decorateQuestionForListView = function (question) {
     var created = question.created_at;
     if (created) {
         question.relativeCreated = toRelativeTime(created);
@@ -58,6 +58,15 @@ var decorateQuestionForListView = function (question) {
     return question;
 };
 
+exports.decorateQuestionsForListView = function (questions) {
+    var results = [];
+    for (var i = 0; i < questions.length; i++) {
+        var question = exports.decorateQuestionForListView(questions[i]);
+        results.push(question);
+    }
+    return results;
+};
+
 exports.decorateQuestionComment = function (comment) {
     var newComment = {
         body: comment.body,
@@ -66,15 +75,6 @@ exports.decorateQuestionComment = function (comment) {
         created_date: toDateTime(comment.created_at)
     };
     return newComment;
-};
-
-exports.decorateQuestionsForListView = function (questions) {
-    var results = [];
-    for (var i = 0; i < questions.length; i++) {
-        var question = decorateQuestionForListView(questions[i]);
-        results.push(question);
-    }
-    return results;
 };
 
 exports.decorateQuestionForDetailView = function (question) {
@@ -142,11 +142,4 @@ exports.decorateQuestionForDetailView = function (question) {
 exports.filterProfanity = function (input) {
     var safeInput = sanitizer.escape(input);
     return safeInput;
-};
-
-exports.constants = {
-    dbServer: 'localhost',
-    dbServerPort: 27017,
-    dbName: 'hivinate',
-    cacheTime: 5 // 5 minutes
 };

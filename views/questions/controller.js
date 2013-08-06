@@ -1,10 +1,11 @@
 var async = require('async');
+var config = require('../../config');
 var DataProvider = require('../../dataProvider').DataProvider;
 var cache = require('../../cacheProvider');
 var util = require('../../util');
 
 exports.index = function (req, res, next) {
-    req.db = req.db || new DataProvider(util.constants.dbServer, util.constants.dbServerPort, util.constants.dbName);
+    req.db = req.db || new DataProvider(config.db.server, config.db.port, config.db.name);
     var cacheKey = 'viewModel_quetions_index';
     var viewModel = cache.get(cacheKey);
     if (viewModel) {
@@ -51,7 +52,7 @@ exports.index = function (req, res, next) {
             return;
         }
 
-        cache.put(cacheKey, viewModel, util.constants.cacheTime);
+        cache.put(cacheKey, viewModel, config.cache.defaultCacheTime);
         res.render('questions/index.html', viewModel);
     });    
 };
